@@ -4,25 +4,25 @@ Developing a GUI for a user friendly way of accessing data from the USGS databas
 
 ### Problem Statement
 
-[Link to Problem Statement](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/problem.md)
+This is a [Link to Problem Statement](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/problem.md)
 
 ### User Stories
 
-[Link to User Stories](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/userstories.md)
+This is a [Link to User Stories](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/userstories.md)
 
 ### Requirements
 
-[Link to Requirements](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/requirements.md)
+This is a [Link to Requirements](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/requirements.md)
 
 ### Architecture
 
-[Link to Architecture](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/architecture.md)
+This is a [Link to Architecture](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/architecture.md)
 
 ### Design Document
 
-[Link to Design Document](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/design.md)
+This is a [Link to Design Document](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/design.md)
 
 ### Test Report
 
-[Link to Test Report](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/testreport.md)
+This is a [Link to Test Report](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/testreport.md)
 
