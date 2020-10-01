@@ -1,10 +1,10 @@
 # Problem Statement
 ### 1. Introducion
 ##### 1.1 Acronyms, Abbreviations, Definitions
-USGS - U.S. Geological Survey
-GIS - Geographic Information System
-TDS - Total Dissolved Solids
-Produced water - wastewater generated during oil and gas production
+USGS - U.S. Geological Survey  
+GIS - Geographic Information System  
+TDS - Total Dissolved Solids  
+Produced water - wastewater generated during oil and gas production  
 Underground injection - the placing of fluids underground through wells
 ##### 1.2 Background
 There is an increasing interest in beneficial uses of large volumes of wastewater co-produced 
@@ -26,29 +26,29 @@ regulators and policy makers evaluating different options for managing produce w
 ### 2. General Description of Product
 ##### 2.1 Context of Product
 The system will utilize a Java application for generating a Graphic User Interface (GUI) and 
-interfacing with the database management system. 
+interfacing with the database management system.   
 Swing is an API for Java that allows the creation of windows which contain GUI elements the 
 user can interface with. Interfacing with the GUI will allow the app to write queries based on the 
-user’s selected parameters and return the requested data.
+user’s selected parameters and return the requested data.  
 MySQL and R are being considered for database management. MySQL is a dedicated database 
 tool while R is a general data manipulation tool. The decision to use one or the other would be 
 determined by either’s ability to interface with the USGS database and our Java app.
 ##### 2.2 Product Functions
-The graphical user interface will be able to:
-	-Select data from a specific basin (geographical area)
-	-Organize data based on time period
-	-Produce specific parameters such as:
-		-Ion concentrations (e.g. Ca, Na, Cl SO4)
-		-TDS
-		-Water production
-		-Oil production
-		-Gas production
-	-Export a table for selected data
-	-Generate and export a figure for selected data
-	-Generate and export a GIS map for selected data
+The graphical user interface will be able to:  
+- Select data from a specific basin (geographical area)  
+- Organize data based on time period  
+- Produce specific parameters such as:  
+  - Ion concentrations (e.g. Ca, Na, Cl SO4)  
+  - TDS  
+  - Water production  
+  - Oil production  
+  - Gas production  
+- Export a table for selected data  
+- Generate and export a figure for selected data  
+- Generate and export a GIS map for selected data
 ##### 2.3 User Characteristics and Expectations
 Users would include geological researchers, ecologists, government regulators,
-enviromental protection agencies, enviromental researchers, and oil companies.
+enviromental protection agencies, enviromental researchers, and oil companies.  
 Expectations of the users would include having the data delivered to them quickly,
 an easy to use GUI, fast query times, and percise data.
 
