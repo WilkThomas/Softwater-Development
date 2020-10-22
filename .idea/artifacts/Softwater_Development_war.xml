@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Softwater-Development:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Softwater-Development</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="softwater-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Softwater-Development:war exploded" />
+    </root>
+  </artifact>
+</component>
