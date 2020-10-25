@@ -178,7 +178,7 @@ public class GUI
 			} //end actionPerformed
 
 			public String createTable() throws IOException {
-				Table table = Table.read().csv("/Users/ll2020/Desktop/USGS/test.csv");
+				Table table = Table.read().csv("test1.csv");
 				Table result = table.select("DATESAMPLE","TDS");
 //				result.write().csv("TDSSummaryTable.csv");
 				String res = result.print();
