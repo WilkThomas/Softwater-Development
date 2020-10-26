@@ -25,7 +25,7 @@ It is an interactive data visualization app for the public and researchers to ac
 
 ##### 2.2 Domain Model with Description
 ![unknown.png](https://cdn.discordapp.com/attachments/750087437182828619/770112332285214720/unknown.png)
-
+The **Web Application** is out base program that handles all of our data. The **Date Range** and the **Geographic Selction** are filters used specifically for the **Graph**. The **Element** is a filter used specifically for the **Table** that filters the data based off of what elemental and molecular deposites. The **Graph** is a ploted chart of the filtered data whereas the **Table** is just a sorted table displaying the data.
 
 ##### 2.3 Product Functions (general)
 * Provide a serious parameter to extract desired data, including oil-producing basin, time period, produced water related parameters (e.g. production, total dissolved solid (TDS))
