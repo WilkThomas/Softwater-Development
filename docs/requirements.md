@@ -24,6 +24,8 @@ https://www.sciencebase.gov/catalog/item/59d25d63e4b05fe04cc235f9
 It is an interactive data visualization app for the public and researchers to access this data easily and implement different ways to filter the data they receive such as specific pollutants, certain time periods etc. The product will be developed by Java.
 
 ##### 2.2 Domain Model with Description
+![unknown.png](https://cdn.discordapp.com/attachments/750087437182828619/770112332285214720/unknown.png)
+
 
 ##### 2.3 Product Functions (general)
 * Provide a serious parameter to extract desired data, including oil-producing basin, time period, produced water related parameters (e.g. production, total dissolved solid (TDS))
