@@ -1,0 +1,1 @@
+[2,"Error in install_tutorial_dependencies(tutorial_path) : \r\n  The following packages need to be installed:\r\n  - nycflights13\r\n  - tidyverse\r\nCalls: sourceWithProgress ... eval -> <Anonymous> -> install_tutorial_dependencies\r\nExecution halted\r\n"]

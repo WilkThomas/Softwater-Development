@@ -1,0 +1,57 @@
+d <- read.table(file.choose(), header = TRUE)
+d[2:5, 200:225]
+d[1, 200:225]
+sum(d[1,])
+plot.default(d[1,])
+plot.default(x = d[1,] )
+d[1:50, 1]
+d[1:50, 1:2]
+d[1,]
+sum(d[1,200:225])
+d[1:15, 2]
+d[1:10, 2:3]
+d[1:25, 2:3]
+d[1:100, 2:3]
+plot.default(x = d [1,], y = d[30,])
+plot.default(x = d [1,], y = d[30,], xlab = "128up", ylab = "AIMP2")
+plot.hexbin(x = d [1,], y = d[30,], xlab = "128up", ylab = "AIMP2")
+hexbin(x = d[1,], y = d[30,])
+install.packages("hexbin")
+library(hexbin)
+plot.hexbin(x = d[1,], y = d[30, ])
+gplot.hexbin(x = d[1,], y = d[30, ])
+plot.hexbin(x = d[1,], y = d[30, ])
+plot.hexbin(x = d[1,])
+gplot.hexbin(x = d[1,])
+plot.default(x = d [1,], y = d[30,], xlab = "128up", ylab = "AIMP2")
+plot.default(x = d [10,], y = d[30,], xlab = "2mit", ylab = "AIMP2")
+plot.default(x = d [1,], y = d[30,], xlab = "128up", ylab = "AIMP2")
+d[1:100, 2:3]
+plot.default(x = d [1,], y = d[35,], xlab = "128up", ylab = "AIMP2")
+plot.default(x = d [1,], y = d[40,], xlab = "128up", ylab = "AIMP2")
+hexbin(x = d[1,], y = d[30,])
+plot(hexbin)
+plot.default(x = d [1, 200:225], y = d[40, 200:225], xlab = "128up", ylab = "AIMP2")
+plot.default(x = d [1, ], y = d[40,], xlab = "128up", ylab = "AIMP2")
+plot.hexbin(hexbin)
+x <- hexbin(x = d[1,], y = d[30,])
+plot(hexbin)
+plot(x)
+plot.hexbin(x)
+gplot.hexbin(x)
+gplot.hexbin(x, style = "colorscale")
+library(hexbin)
+library(gplots)
+my.colors <- function (n)
+{
+(rich.colors(n))
+}
+plot(hexbin(lastthousand$V4, lastthousand$V5, xbnds=c(0,35), ybnds=c(0,35),), xlab="Green Pucks", ylab="Red Pucks",colramp = my.colors, colorcut = seq(0, 1, length = 25),lcex=0.66)
+gplot.hexbin(x)
+gplot.hexbin(x, colramp = my.colors, colorcut = seq(0, 1, length = 25),lcex=0.66)
+detach("package:hexbin", unload = TRUE)
+install.packages("gplots")
+install.packages("hexbin")
+gplot.hexbin(x, colramp = my.colors, colorcut = seq(0, 1, length = 25),lcex=0.66)
+gplot.hexbin(x)
+plot.hexbin(x)

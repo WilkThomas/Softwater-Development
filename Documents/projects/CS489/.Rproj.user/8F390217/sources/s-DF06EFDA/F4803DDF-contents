@@ -1,0 +1,11 @@
+library(ggplot2)
+library(hexbin)
+library(glots)
+
+
+filename <- "GSM4209275_10X_SCRNASEQ_WT_EA_AGGR.tsv.gz"
+
+#Select a file and read the data into a data-frame
+d <- read.table(filename, header = TRUE)
+
+head(d)

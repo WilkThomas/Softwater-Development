@@ -1,0 +1,86 @@
+---
+title: "HW2"
+author: "Danielle Caesar"
+date: "Sep. 7, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+## HW2
+
+The chromosome with the maximum # of genes (1-22, X, Y) : 
+Chr1 (5476)
+The chromosome with the minimum # of genes (1-22, X, Y) :  
+ChrY (566)
+
+The chromosome with the maximum # of transcripts (1-22, X, Y) : 
+Chr1 (20164)
+The chromosome with the minimum # of transcripts (1-22, X, Y) : 
+ChrY (983)
+
+The chromosome with the maximum # of CDS (1-22, X, Y) : 
+Chr1 (73344)
+The chromosome with the minimum # of CDS (1-22, X, Y) : 
+ChrY (2016)
+
+Highest gene density: 
+Chr19
+Lowest gene density:  
+Chr18
+
+Highest transcript density: 
+Chr21
+Lowest transcript density:  
+ChrY
+
+Highest CDS density: 
+Chr4
+Lowest CDS density:  
+ChrX
+
+```{r include = FALSE}
+library(ggplot2)
+library(dplyr)
+#create variable for file
+filename <- "gencode.v35.annotation.gff3.gz"
+#read data from file into a table
+data <- read.table(filename, header = FALSE, sep = "\t", comment.char = "#", col.names = c("seqid", "source", "type", "start", "end", "score", "strand", "phase", "attributes"))
+#create tables for bar plots
+counts <- data %>% count(seqid, type)
+genecounts <- subset(counts, type =="gene")
+transcriptcounts <- subset(counts, type == "transcript")
+#create tables for density plots
+CDScounts <- subset(counts, type == "CDS")
+genes <- subset(data, select = c("seqid", "start"), type == "gene")
+transcripts <- subset(data, select = c("seqid", "start"), type == "transcript")
+CDS <- subset(data, select = c("seqid", "start"), type == "CDS")
+
+```
+
+## Plots
+
+
+
+```{r echo=FALSE}
+#Gene Bar Plot
+barplot(genecounts$n, width = .5, names.arg = genecounts$seqid, cex.names = .5, main = "Genes", col = c("blue", "green", "purple"), xlab = "Chromosome", ylim = c(0,6000))
+#Gene Density
+ggplot(genes) + geom_histogram(aes(x=start),binwidth=1000000) + facet_wrap(~seqid,ncol=5) + ggtitle("Gene Density") + xlab("Position") + ylab("Number of genes") + theme(axis.text.x = element_text(size = 5))
+
+
+#Transcript Bar Plot
+barplot(transcriptcounts$n, width = .5, names.arg = transcriptcounts$seqid, cex.names = .5, main = "Transcripts", col = c("blue", "green", "purple"), xlab = "Chromosome", ylim = c(0,21000))
+#Transcript Density
+ggplot(transcripts) + geom_histogram(aes(x=start),binwidth=1000000) + facet_wrap(~seqid,ncol=5) + ggtitle("Transcript Density") + xlab("Position") + ylab("Number of transcripts") + theme(axis.text.x = element_text(size = 5))
+
+#CDS Bar Plot
+barplot(CDScounts$n, width = .5, names.arg = CDScounts$seqid, cex.names = .5, main = "CDS Count", col = c("blue", "green", "purple"), xlab = "Chromosome", ylim = c(0,80000))
+#CDS Density
+ggplot(CDS) + geom_histogram(aes(x=start),binwidth=1000000) + facet_wrap(~seqid,ncol=5) + ggtitle("CDS Density") + xlab("Position") + ylab("Number of CDS") + theme(axis.text.x = element_text(size = 5))
+```
+
+
