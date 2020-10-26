@@ -7,9 +7,12 @@
 There is increasing interest in beneficial uses of large volumes of wastewater co-produced with oil and gas extraction (produced water) because of water scarcity, potential subsurface disposal limitations, and regional linkages to induced seismicity. This app provides quantitative data on the relevant water volumes and qualities using existing data from the USGS Produced Waters database. It will promote the assessment of beneficial use of produced water in different areas. The quantitative data provided will be valuable to regulators and policy makers evaluating different options for managing produce water.
 
 ##### 1.3 Acronyms, Abbreviations, Definitions
-**USGS** - U.S. Geological Survey 
+**USGS** - U.S. Geological Survey
+
 **GIS** - geographic information system
+
 **Produced water** - wastewater generated during oil and gas production
+
 **Underground injection** - the placing of fluids underground through wells
 
 ##### 1.4 References
