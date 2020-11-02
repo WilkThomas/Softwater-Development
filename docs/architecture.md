@@ -37,7 +37,7 @@ This will hopefully serve to promote the assessment of beneficial uses of produc
 * User interface and server are in separate code 
 
 ### Architectural Diagram
-!
+!diagram.png(https://cdn.discordapp.com/attachments/750087437182828619/772670263157325824/Diagram.PNG)
 
 ### Conclusion 
 #### The architecture model of Softwater Development is Pipe-and-filter.
