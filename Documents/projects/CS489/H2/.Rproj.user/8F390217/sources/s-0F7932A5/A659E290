@@ -1,0 +1,25 @@
+{
+    "id": "A659E290",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1599945592495.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "id": "c963f310a4704c3a8f37dbf13c5c8ae8",
+        "name": "values",
+        "title": "values"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1636555872352,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1599945592495,
+    "read_only": false,
+    "read_only_alternatives": []
+}
