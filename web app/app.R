@@ -21,7 +21,7 @@ in2 <- sliderInput(inputId = "my_dates",label = "Date Range",min = 1905,
                    value = c(1905, 2014), sep='')
 
 #Variable for input 3 on GUI
-in3 <- selectInput(inputId = "select_query", h3("Select"), choices = c('TDS', 'Ag', 'Al', 'Ar', 'B', 'Na'), selected = 'TDS')
+in3 <- selectInput(inputId = "select_query", h3("Select"), choices = c('Al', 'ALKHCO3', 'B', 'Br', 'CO3', 'Ca', 'Cl', 'Cu', 'F', 'FeTot', 'HCO3', 'I', 'K', 'Li', 'Mg', 'Mn', 'N', 'NO3', 'Na', 'P', 'PH', 'SO4', 'Si', 'TDS', 'TSS'), selected = 'TDS')
 
 #Add the input variables and a title to the side panel of the user interface
 side <- sidebarPanel('Options', in1, in2, in3)
