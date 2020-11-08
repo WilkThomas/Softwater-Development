@@ -41,16 +41,19 @@ out3 <- tableOutput("basin_table")
 out4 <- verbatimTextOutput("stats")
 
 #Add the title, and outputs to the main frame on GUI
-main <- mainPanel("Water Quality (mg/L)", out1, out2, out3, out4)
-
+main <- mainPanel("Water Quality (mg/L)", 
+                  tabsetPanel(type = "tabs",
+                              tabPanel("Plot", out1, out2),
+                              tabPanel("Summary", out4),
+                              tabPanel("Table", out3))
+                
+                    )
 
 #This is the user interface layout
 ui <- fluidPage(
     #A selector bar to browse through themes
     shinythemes::themeSelector(),
     
-
-    titlePanel("Water Quality"),
 
     titlePanel("Water Quality (mg/L)"),
 
