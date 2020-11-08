@@ -3,6 +3,7 @@ library(shiny)
 library(ggplot2)
 library(devtools)
 library(dplyr)
+library(DT)
 
 #IMPORTANT - copy this line of code to the console to input the data
 
@@ -32,26 +33,26 @@ out2 <- plotOutput('basin_plot')
 #Add the title, and outputs to the main frame on GUI
 main <- mainPanel("Title", out1, out2)
 
-out3 <- tableOutput("basin_table") 
+out3 <- DTOutput("table") 
 
 out4 <- verbatimTextOutput("stats")
 
-#Add the title, and outputs to the main frame on GUI
-main <- mainPanel("Water Quality (mg/L)", 
+#Add the title, and outputs to the main frame on GUI - br() adds spacing
+main <- mainPanel("Water Quality (mg/L)", br(), br(), 
                   tabsetPanel(type = "tabs",
-                              tabPanel("Plot", out1, out2),
-                              tabPanel("Summary", out4),
-                              tabPanel("Table", out3))
+                              tabPanel("Plot", br(), br(), out1, br(), br(), out2),
+                              tabPanel("Summary", br(), br(), out4),
+                              tabPanel("Table", br(), br(), out3)),
                 
-                    )
+                    br(), br())
 
 #This is the user interface layout
 ui <- fluidPage(
     #A selector bar to browse through themes
-    shinythemes::themeSelector(),
+    #shinythemes::themeSelector(),
     
 
-    titlePanel("Water Quality (mg/L)"),
+    titlePanel("Softwater Development"), br(), br(),
 
     sidebarLayout(
          side, main)
@@ -77,24 +78,22 @@ server <- function(input, output) {
     #Makes the radio buttons reactive and makes the next drop down change based on radio button choices
     output$ui <- renderUI({
         switch( input$searchBy,
-                "Basin" = filter <- selectInput(inputId = "select_basin", h3("Basin"), choices = unique(data[["BASIN"]]), selected = 'Permian'),
-                "State" = filter <- selectInput(inputId = "select_state", h3("State"), choices = unique(data[["STATE"]]), selected = 'Pennsylvania'),
-                "County" = filter <- selectInput(inputId = "select_county", h3("County"), choices = unique(data[["COUNTY"]]), selected = 'Westmoreland')
+                "Basin" = filter <- selectInput(inputId = "select_basin", h3("Basin"), choices = sort(unique(data[["BASIN"]])), selected = 'Permian'),
+                "State" = filter <- selectInput(inputId = "select_state", h3("State"), choices = sort(unique(data[["STATE"]])), selected = 'Pennsylvania'),
+                "County" = filter <- selectInput(inputId = "select_county", h3("County"), choices = sort(unique(data[["COUNTY"]])), selected = 'Westmoreland')
     )
     })
     
     #Create a plot based on user inputs
-    #output[['basin_plot']] <- renderPlot({
-        
-
-        
-    #Create a plot based on user inputs
     output[['basin_plot']] <- renderPlot({
 
-        req(input$select_basin)
+        req(input$searchBy)
         
         #Format the date column as a date object and extract year only
         data$DATESAMPLE <- format(as.Date(data$DATESAMPLE, '%Y-%m-%d'), '%Y')
+        
+        
+        if(input$searchBy == "Basin") {
         
         #Create a subset of the data based on user selections
         filtered <-
@@ -111,7 +110,46 @@ server <- function(input, output) {
             
                   ))
         
-
+        }
+        
+        if(input$searchBy == "State") {
+            
+            #Create a subset of the data based on user selections
+            filtered <-
+                data %>% 
+                
+                filter(STATE ==input[['select_state']]) %>%
+                filter(DATESAMPLE %in% slider_years())
+            
+            filtered <-
+                
+                subset(filtered,
+                       STATE == input[['select_state']],
+                       c("STATE", input[['select_query']], "DATESAMPLE"
+                         
+                       ))
+            
+        }
+        
+        if(input$searchBy == "County") {
+            
+            #Create a subset of the data based on user selections
+            filtered <-
+                data %>% 
+                
+                filter(COUNTY ==input[['select_county']]) %>%
+                filter(DATESAMPLE %in% slider_years())
+            
+            filtered <-
+                
+                subset(filtered,
+                       COUNTY == input[['select_county']],
+                       c("COUNTY", input[['select_query']], "DATESAMPLE"
+                         
+                       ))
+            
+        }
+        
         #Eliminate rows with null values from the data
         filtered <- filtered[complete.cases(filtered),]
         
@@ -128,7 +166,7 @@ server <- function(input, output) {
         
         names(filtered)[2] <- 'y_value'
         
-        ggplot(data = filtered, aes(x = Group.1, y = y_value)) + geom_col(fill = '#0066CC') + xlab("Year") + ylab("TDS") 
+        ggplot(data = filtered, aes(x = Group.1, y = y_value)) + geom_col(fill = '#0066CC') + xlab("Year") + ylab("TDS") + theme(axis.text.x = element_text(angle = 90))
     })
     
     output$stats <- renderPrint({
@@ -174,23 +212,69 @@ server <- function(input, output) {
         summary(filtered)
     })
     
-    output$basin_table <- renderTable({
+    output$table <- renderDT({
+        
         req(input$select_basin)
         
         #Format the date column as a date object and extract year only
         data$DATESAMPLE <- format(as.Date(data$DATESAMPLE, '%Y-%m-%d'), '%Y')
         
-        #Create a subset of the data based on user selections
-        filtered <-
-            data %>% 
-            filter(BASIN ==input[['select_basin']]) %>%
-            filter(DATESAMPLE %in% slider_years())
+        if(input$searchBy == "Basin") {
+            
+            #Create a subset of the data based on user selections
+            filtered <-
+                data %>% 
+                
+                filter(BASIN ==input[['select_basin']]) %>%
+                filter(DATESAMPLE %in% slider_years())
+            
+            filtered <-
+                
+                subset(filtered,
+                       BASIN == input[['select_basin']],
+                       c("BASIN", input[['select_query']], "DATESAMPLE"
+                         
+                       ))
+            
+        }
         
-        filtered <-
-            subset(filtered,
-                   BASIN == input[['select_basin']],
-                   c("BASIN", input[['select_query']], "DATESAMPLE"
-                   ))
+        if(input$searchBy == "State") {
+            
+            #Create a subset of the data based on user selections
+            filtered <-
+                data %>% 
+                
+                filter(STATE ==input[['select_state']]) %>%
+                filter(DATESAMPLE %in% slider_years())
+            
+            filtered <-
+                
+                subset(filtered,
+                       STATE == input[['select_state']],
+                       c("STATE", input[['select_query']], "DATESAMPLE"
+                         
+                       ))
+            
+        }
+        
+        if(input$searchBy == "County") {
+            
+            #Create a subset of the data based on user selections
+            filtered <-
+                data %>% 
+                
+                filter(COUNTY ==input[['select_county']]) %>%
+                filter(DATESAMPLE %in% slider_years())
+            
+            filtered <-
+                
+                subset(filtered,
+                       COUNTY == input[['select_county']],
+                       c("COUNTY", input[['select_query']], "DATESAMPLE"
+                         
+                       ))
+            
+        }
         
         #Eliminate rows with null values from the data
         filtered <- filtered[complete.cases(filtered),]
@@ -202,9 +286,9 @@ server <- function(input, output) {
         
         #Aggregate by year
         filtered <- aggregate(filtered[input[['select_query']]], FUN = sum, by = date_list)
+        colnames(filtered) <- c("DATE", "TARGET")
         
-        head(filtered)
-
+        datatable(filtered, rownames = FALSE, caption = "Option to add a caption for the table.", )
     })
 }
 
