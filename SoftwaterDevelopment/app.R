@@ -8,23 +8,19 @@ library(dplyr)
 
 #data <- read.csv("USGSPWDBv2.3n.csv")
 
+#Variable for radio buttons on UI
+searchBy <- radioButtons("searchBy", "Search by:", c("Basin", "State","County"))
 
-
-
-
-#Variable for input 1 on GUI
-in1 <- selectInput(inputId = "select_basin", h3("Basin"), choices = unique(data[["BASIN"]]), selected = 'Permian')
-
-#Variable for input 2 on GUI
-in2 <- sliderInput(inputId = "my_dates",label = "Date Range",min = 1905,
+#Variable for time slider on UI
+timeRange <- sliderInput(inputId = "my_dates",label = "Date Range",min = 1905,
                    max = 2014,
                    value = c(1905, 2014), sep='')
 
-#Variable for input 3 on GUI
-in3 <- selectInput(inputId = "select_query", h3("Select"), choices = c('Al', 'ALKHCO3', 'B', 'Br', 'CO3', 'Ca', 'Cl', 'Cu', 'F', 'FeTot', 'HCO3', 'I', 'K', 'Li', 'Mg', 'Mn', 'N', 'NO3', 'Na', 'P', 'PH', 'SO4', 'Si', 'TDS', 'TSS'), selected = 'TDS')
+#Variable for target drop down on UI
+target <- selectInput(inputId = "select_query", h3("Target"), choices = c('Al', 'ALKHCO3', 'B', 'Br', 'CO3', 'Ca', 'Cl', 'Cu', 'F', 'FeTot', 'HCO3', 'I', 'K', 'Li', 'Mg', 'Mn', 'N', 'NO3', 'Na', 'P', 'PH', 'SO4', 'Si', 'TDS', 'TSS'), selected = 'TDS')
 
 #Add the input variables and a title to the side panel of the user interface
-side <- sidebarPanel('Options', in1, in2, in3)
+side <- sidebarPanel('Options', searchBy,uiOutput("ui"), timeRange, target)
 
 #Variable for Label in Main frame on GUI
 out1 <- textOutput('basin_label')
@@ -74,8 +70,15 @@ server <- function(input, output) {
         seq(input[['my_dates']][1],
             input[['my_dates']][2])
     })
-
     
+    #Makes the radio buttons reactive and makes the next drop down change based on radio button choices
+    output$ui <- renderUI({
+        switch( input$searchBy,
+                "Basin" = filter <- selectInput(inputId = "select_basin", h3("Basin"), choices = unique(data[["BASIN"]]), selected = 'Permian'),
+                "State" = filter <- selectInput(inputId = "select_state", h3("State"), choices = unique(data[["STATE"]]), selected = 'Pennsylvania'),
+                "County" = filter <- selectInput(inputId = "select_county", h3("County"), choices = unique(data[["COUNTY"]]), selected = 'Westmoreland')
+    )
+    })
     
     #Create a plot based on user inputs
     #output[['basin_plot']] <- renderPlot({
