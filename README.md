@@ -1,6 +1,8 @@
 # Softwater-Development
 ## Link to GitHub Pages Project Site
 This is a [link to the project site](https://wilkthomas.github.io/Softwater-Development/)
+## Instructions for Running
+The app is developed in R using RStudio. Using RStudio, open the project doing Open Project and navigating to the project file in the SoftwaterDevelopment directory. Then, in the consol of RStudio, run data <- read.csv("USGSPWDBv2.3n.csv"). Then you can press the Run App button in RStudio near the top right. 
 ## Description of Project for D0
 Demo 0 consisted of a basic GUI using Java Swing that parsed a CSV file based on some filters. Was used as a proof of concept.
 ## Description of Project for D1
