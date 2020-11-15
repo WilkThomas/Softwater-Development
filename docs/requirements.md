@@ -32,23 +32,39 @@ The **Web Application** is out base program that handles all of our data. The **
 * Provide a serious parameter to extract desired data, including oil-producing basin, time period, produced water related parameters (e.g. production, total dissolved solid (TDS))
 * Export a table for selected data
 * Generate and export a figure for selected data
-* Generate and export a GIS map for selected data
+* Provide statistical analysis for selected data
 
 ##### 2.4 User Characteristics and Expectations
 * Select desired filters
-* Select desired output format (e.g., table, figure, map) and export
+* Select desired output format (e.g., table, figure) and export
 
 ##### 2.5 Constraints
-* More improvements are required for high QPS
+* The program doesn’t access the USGS database via API so, in the case the database was updated, out program would provide outdated information until a new CSV file was created and distributed.
+* The results are based on data availability and some categories of data aren't very populated.
 
 ##### 2.5 Assumptions and Dependencies
-*	Graphviz - Graph Visualization Software: Graphviz is open source graph visualization software. Graph visualization is a way of representing structural information as diagrams of abstract graphs and networks. 
-*	https://www.graphviz.org/
+*	RStudio - Graph Visualization Software: RStudio is an integrated development environment for R, a programming language for statistical computing and graphics. Graph visualization is a way of representing structural information as diagrams of abstract graphs and networks. 
+*	https://rstudio.com/
+
 
 ### 3. Functional Requirements
 Here is a list of our User Stories that highlight what our projects requirements are. https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/userstories.html
 
 
+### 4. System and Non-functional Requirements
+
+##### 4.1 External Interface Requirements (User,Hardware,Software,Communications)
+Our software provides user interface including time (years) and space (state, county, basin) filters, selections of chart, table, and summary.
+
+##### 4.2 Design Constraints
+* Time constraints: project has to adhere to due dates
+* Budget constraints: hardware/software needs to be free and openly available for student use.
+* Knowledge level of students working in group.
+
+##### 4.3 Quality Requirments
+* Responsive: able to quickly adapt to user specifications.
+* Reactive: respond and change based on user input
+* Accurate: data displayed needs to match database
 
 
 
