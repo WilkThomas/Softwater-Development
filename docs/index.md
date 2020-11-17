@@ -1,6 +1,6 @@
 # SOFTWATER DEVELOPMENT
 
-Developing a GUI for a user friendly way of accessing data from the USGS database. This database doesnt have a UI currently, so this would be a great desktop application to help users filter and view the data.
+Softwater Development is striving to develope a GUI for a user friendly way of accessing data from the USGS database. This database doesnt have a UI currently, so this would be a great R based web application to help users filter and view the data for use in research, policy making, and more.
 
 ### Problem Statement
 
@@ -8,7 +8,7 @@ This is a [Link to Problem Statement](https://github.com/WilkThomas/Softwater-De
 
 ### User Stories
 
-This is a [Link to User Stories](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/userstories.md)
+This is a [Link to User Stories](https://github.com/WilkThomas/Softwater-Development/blob/gh-pages/docs/userstories.html)
 
 ### Requirements
 
