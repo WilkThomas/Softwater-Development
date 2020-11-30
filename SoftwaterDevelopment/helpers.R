@@ -1,3 +1,11 @@
+library(shiny)
+library(ggplot2)
+library(devtools)
+library(dplyr)
+library(DT)
+library(maps)
+library(mapproj)
+
 # Note: percent map is designed to work with the counties data set
 # It may not work correctly with other data sets if their row order does 
 # not exactly match the order in which the maps package plots counties

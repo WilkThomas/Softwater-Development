@@ -1,3 +1,11 @@
+library(shiny)
+library(ggplot2)
+library(devtools)
+library(dplyr)
+library(DT)
+library(maps)
+library(mapproj)
+
 #Output functions
 server <- function(input, output) {
   

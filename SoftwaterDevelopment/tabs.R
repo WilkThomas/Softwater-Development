@@ -1,3 +1,11 @@
+library(shiny)
+library(ggplot2)
+library(devtools)
+library(dplyr)
+library(DT)
+library(maps)
+library(mapproj)
+
 #Variable for what to search by on UI either Basin, State, or County
 searchBy <- radioButtons("searchBy", "Search by:", c("Basin", "State","County"))
 
