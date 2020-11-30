@@ -226,24 +226,4 @@ server <- function(input, output) {
     
     datatable(filtered, rownames = FALSE, caption = "Option to add a caption for the table.", )
   })
-  
-  ##This is my experimental map function
-  output$map <- renderPlot({
-    data <- switch(input$select_query, 
-                   "TDS" = data$TDS)
-    
-    
-    
-    color <- switch(input$select_query, 
-                    "TDS" = "darkgreen")
-    
-    
-    
-    legend <- switch(input$select_query, 
-                     "TDS" = "% White")
-    
-    
-    
-    percent_map(data, color, legend, input$my_dates[1], input$my_date[2])
-  })
 }

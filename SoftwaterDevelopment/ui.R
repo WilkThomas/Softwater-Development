@@ -1,4 +1,3 @@
-source('helpers.R')
 source('tabs.R')
 
 ui <- fluidPage(
