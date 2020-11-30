@@ -4,11 +4,13 @@ library(ggplot2)
 library(devtools)
 library(dplyr)
 library(DT)
+library(maps)
+library(mapproj)
 
 #IMPORTANT - copy this line of code to the console to input the data
 
 #data <- read.csv("USGSPWDBv2.3n.csv")
-
+source('helpers.R')
 #Variable for radio buttons on UI
 searchBy <- radioButtons("searchBy", "Search by:", c("Basin", "State","County"))
 
@@ -37,19 +39,22 @@ out3 <- DTOutput("table")
 
 out4 <- verbatimTextOutput("stats")
 
+out5 <- plotOutput('map')
+
 #Add the title, and outputs to the main frame on GUI - br() adds spacing
 main <- mainPanel("Water Quality (mg/L)", br(), br(), 
                   tabsetPanel(type = "tabs",
                               tabPanel("Plot", br(), br(), out1, br(), br(), out2),
                               tabPanel("Summary", br(), br(), out4),
                               tabPanel("Table", br(), br(), out3)),
+                              tabPanel("Map", br(), br(), out5) 
                 
-                    br(), br())
+                    )
 
 #This is the user interface layout
 ui <- fluidPage(
     #A selector bar to browse through themes
-    #shinythemes::themeSelector(),
+    shinythemes::themeSelector(),
     
 
     titlePanel("Softwater Development"), br(), br(),
@@ -166,11 +171,11 @@ server <- function(input, output) {
         
         names(filtered)[2] <- 'y_value'
         
-        ggplot(data = filtered, aes(x = Group.1, y = y_value)) + geom_col(fill = '#0066CC') + xlab("Year") + ylab("TDS") + theme(axis.text.x = element_text(angle = 90))
+        ggplot(data = filtered, aes(x = Group.1, y = y_value)) + geom_col(fill = '#148F77') + xlab("Year") + ylab("TDS") + theme(axis.text.x = element_text(angle = 90))
     })
     
     output$stats <- renderPrint({
-        req(input$select_basin)
+        req(input$searchBy)
         
         #Format the date column as a date object and extract year only
         data$DATESAMPLE <- format(as.Date(data$DATESAMPLE, '%Y-%m-%d'), '%Y')
@@ -207,14 +212,14 @@ server <- function(input, output) {
         names(filtered)[2] <- 'y_value'
         
         
-        ggplot(data = filtered, aes(x = Group.1, y = y_value)) + geom_col(fill = '#0066CC') + xlab("Year") + ylab("TDS") 
+        
 
         summary(filtered)
     })
     
     output$table <- renderDT({
         
-        req(input$select_basin)
+        req(input$searchBy)
         
         #Format the date column as a date object and extract year only
         data$DATESAMPLE <- format(as.Date(data$DATESAMPLE, '%Y-%m-%d'), '%Y')
@@ -289,6 +294,26 @@ server <- function(input, output) {
         colnames(filtered) <- c("DATE", "TARGET")
         
         datatable(filtered, rownames = FALSE, caption = "Option to add a caption for the table.", )
+    })
+    
+    ##This is my experimental map function
+    output$map <- renderPlot({
+        data <- switch(input$select_query, 
+                       "TDS" = data$TDS)
+                       
+        
+        
+        color <- switch(input$select_query, 
+                        "TDS" = "darkgreen")
+                        
+        
+        
+        legend <- switch(input$select_query, 
+                         "TDS" = "% White")
+                         
+        
+        
+        percent_map(data, color, legend, input$my_dates[1], input$my_date[2])
     })
 }
 
