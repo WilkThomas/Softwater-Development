@@ -5,6 +5,7 @@ library(dplyr)
 library(DT)
 library(maps)
 library(mapproj)
+library(shinythemes)
 
 #Output functions
 server <- function(input, output) {

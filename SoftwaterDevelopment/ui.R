@@ -2,7 +2,7 @@ source('tabs.R')
 
 ui <- fluidPage(
   #A selector bar to browse through themes
-  shinythemes::themeSelector(),
+  theme = shinytheme("flatly"),
   
   titlePanel("Softwater Development"), br(), br(),
   
