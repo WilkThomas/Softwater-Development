@@ -4,6 +4,8 @@ Unit testing was performed on each input and output element of the application. 
 - Basic - this test checks the basic functionality including the connection to the local server.  The test returns the application header to show that the application was accessible.
 The basic test also checks for the presence of elements within the application.  It returns a message indicating whether elements are present when the web application load.  The test specifically
 tests for the presence of each input element and the tabs that allow the user to select specific outputs.
+
+
 ![diagram.png](https://cdn.discordapp.com/attachments/750087437182828619/783894981840076830/Controls_test_results.JPG)
  
 ## Testing the controls functionality
