@@ -22,10 +22,8 @@ tests for the presence of each input element and the tabs that allow the user to
   - Server function tests: These tests run the server function of a Shiny application in an environment that simulates a real client session. They can be used to test reactive components and outputs in the server function of a Shiny application, or in a module.
   - Snapshot-based tests: These are tests performed with the shinytest package, which runs the Shiny application in a headless web browser. The web browser connects to the Shiny application and simulates user actions, such as clicking on buttons and setting inputs to particular values. It takes snapshots of the application state and, in future runs of the tests, compares the application state to those saved snapshots.
   
-  The tests for unit and server functions are local test files.  The test must be written in R programming language.  The snapshot-based test allows you to run the app and records the script as you use the application.  Each time you run the snapshot-based test, a comparison file is created.  The must have a headless web browser to function.  It doesn't require coding, just a simple command.
-  
- 
  #Acceptance Testing
+ 
  - Filtering by Geographical Region: The system provides the select function for 100% minerals presenting in USGS database. The users like geological researchers are able to select specific minerals they are insterested.
  - Filtering by Time Period: The system provides the time range from 1905 to 2014, The users like ecologists can easily adjust the time range by move the time ruler bar on the user interface.
  - Export GIS Map: This reactive map function will take much more effort than we expect, it is not yet functional.
