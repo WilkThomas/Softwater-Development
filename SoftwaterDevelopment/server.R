@@ -7,6 +7,16 @@ library(maps)
 library(mapproj)
 library(shinythemes)
 
+not_mtcars <- function(input) {
+  if (input == "mtcars") {
+    "Choose another data set. No mtcars please!"
+  } else if (input == "") {
+    FALSE
+  } else {
+    NULL
+  }
+}
+
 #Output functions
 server <- function(input, output) {
   
@@ -112,7 +122,9 @@ server <- function(input, output) {
     names(filtered)[2] <- 'y_value'
     
     ggplot(data = filtered, aes(x = Group.1, y = y_value)) + geom_col(fill = '#148F77') + xlab("Year") + ylab("TDS") + theme(axis.text.x = element_text(angle = 90))
-  })
+  
+    
+    })
   
   output$stats <- renderPrint({
     req(input$searchBy)

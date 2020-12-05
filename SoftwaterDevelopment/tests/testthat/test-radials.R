@@ -1,3 +1,4 @@
+HEAD
 context("controls")
 
 library(RSelenium)
@@ -25,4 +26,5 @@ test_that("can select/deselect radio buttonssni", {
   expect_false(initState == changeState)  
 })
 
+bcfcf521bcd34f42c6f7e87f0deaf2b13a77adda
 remDr$close()

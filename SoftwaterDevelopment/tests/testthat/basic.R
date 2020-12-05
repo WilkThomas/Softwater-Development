@@ -1,3 +1,5 @@
+HEAD
+
 context("basic")
 
 library(RSelenium)
@@ -30,4 +32,5 @@ test_that("tabs are present", {
   expect_equal(appTabLabels[[1]], "Plot")  
   expect_equal(appTabLabels[[2]], "Summary") 
   expect_equal(appTabLabels[[3]], "Table")
+bcfcf521bcd34f42c6f7e87f0deaf2b13a77adda
 })
