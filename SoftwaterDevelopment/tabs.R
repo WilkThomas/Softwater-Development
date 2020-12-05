@@ -17,8 +17,11 @@ timeRange <- sliderInput(inputId = "my_dates",label = "Date Range",min = 1905,
 #Variable for target drop down on UI
 target <- selectInput(inputId = "select_query", h3("Target"), choices = c('Al', 'ALKHCO3', 'B', 'Br', 'CO3', 'Ca', 'Cl', 'Cu', 'F', 'FeTot', 'HCO3', 'I', 'K', 'Li', 'Mg', 'Mn', 'N', 'NO3', 'Na', 'P', 'PH', 'SO4', 'Si', 'TDS', 'TSS'), selected = 'TDS')
 
+#button to download the data
+download <- downloadButton("downloadData", "Export as png")
+
 #Add the input variables and a title to the side panel of the user interface
-side <- sidebarPanel('Options', searchBy,uiOutput("ui"), timeRange, target)
+side <- sidebarPanel('Options', searchBy,uiOutput("ui"), timeRange, target, download)
 
 #Variable for Label in Main frame on GUI
 out1 <- textOutput('basin_label')
@@ -37,11 +40,11 @@ out4 <- verbatimTextOutput("stats")
 out5 <- plotOutput('map')
 
 #Add the title, and outputs to the main frame on GUI - br() adds spacing
-main <- mainPanel("Water Quality (mg/L)", br(), br(), 
+main <- mainPanel( 
                   tabsetPanel(type = "tabs",
-                              tabPanel("Plot", br(), br(), out1, br(), br(), out2),
+                              tabPanel("Plot", br(), out1, br(), out2),
                               tabPanel("Summary", br(), br(), out4),
-                              tabPanel("Table", br(), br(), out3)),
+                              tabPanel("Table", br(), out3)),
                   tabPanel("Map", br(), br(), out5) 
                   
 )

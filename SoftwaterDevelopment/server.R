@@ -7,15 +7,6 @@ library(maps)
 library(mapproj)
 library(shinythemes)
 
-not_mtcars <- function(input) {
-  if (input == "mtcars") {
-    "Choose another data set. No mtcars please!"
-  } else if (input == "") {
-    FALSE
-  } else {
-    NULL
-  }
-}
 
 #Output functions
 server <- function(input, output) {
@@ -31,7 +22,7 @@ server <- function(input, output) {
   #Reactive function to dynamically update years and pass to the filter
   slider_years <- reactive({
     seq(input[['my_dates']][1],
-        input[['my_dates']][2])
+        input[['my_dates']][2]) 
   })
   
   #Makes the radio buttons reactive and makes the next drop down change based on radio button choices
@@ -121,8 +112,8 @@ server <- function(input, output) {
     
     names(filtered)[2] <- 'y_value'
     
-    ggplot(data = filtered, aes(x = Group.1, y = y_value)) + geom_col(fill = '#148F77') + xlab("Year") + ylab("TDS") + theme(axis.text.x = element_text(angle = 90))
-  
+    plot <- ggplot(data = filtered, aes(x = Group.1, y = y_value)) + geom_col(fill = '#148F77') + xlab("Year") + ylab("TDS") + theme(axis.text.x = element_text(angle = 90))
+    plot
     
     })
   
@@ -237,6 +228,19 @@ server <- function(input, output) {
     filtered <- aggregate(filtered[input[['select_query']]], FUN = sum, by = date_list)
     colnames(filtered) <- c("DATE", "TARGET")
     
-    datatable(filtered, rownames = FALSE, caption = "Option to add a caption for the table.", )
+    datatable(filtered, rownames = FALSE)
   })
+  
+  
+  
+  
+  #Downloadable csv of the selected dataset
+   output$downloadData <- downloadHandler(
+    filename = "plot.png", 
+    content = function(file) {
+      export(p = output[['basin_plot']], file = 'tempplot.png')
+      file.copy('tempplot.png', file)
+      #write.csv(datasetInput(), file, row.names = FALSE)
+    }
+  )
 }
