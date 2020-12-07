@@ -1,0 +1,13 @@
+name: SoftwaterDevelopment
+title: SoftwaterDevelopment
+username:
+account: softwater-devolopment
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3363537
+bundleId: 3953376
+url: https://softwater-devolopment.shinyapps.io/softwaterdevelopment/
+when: 1607317804.82838
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|Controls test results.JPG|drop.png|tests

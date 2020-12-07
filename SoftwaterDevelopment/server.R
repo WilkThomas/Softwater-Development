@@ -7,6 +7,7 @@ library(maps)
 library(mapproj)
 library(shinythemes)
 
+data <- read.csv("USGSPWDBv2.3n.csv")
 
 #Output functions
 server <- function(input, output) {
@@ -35,7 +36,7 @@ server <- function(input, output) {
   })
   
   #Create a plot based on user inputs
-  output[['basin_plot']] <- renderPlot({
+  output$plot <- renderPlot({
     
     req(input$searchBy)
     

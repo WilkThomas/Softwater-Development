@@ -6,6 +6,8 @@ library(DT)
 library(maps)
 library(mapproj)
 
+data <- read.csv("USGSPWDBv2.3n.csv")
+
 #Variable for what to search by on UI either Basin, State, or County
 searchBy <- radioButtons("searchBy", "Search by:", c("Basin", "State","County"))
 
@@ -17,17 +19,14 @@ timeRange <- sliderInput(inputId = "my_dates",label = "Date Range",min = 1905,
 #Variable for target drop down on UI
 target <- selectInput(inputId = "select_query", h3("Target"), choices = c('Al', 'ALKHCO3', 'B', 'Br', 'CO3', 'Ca', 'Cl', 'Cu', 'F', 'FeTot', 'HCO3', 'I', 'K', 'Li', 'Mg', 'Mn', 'N', 'NO3', 'Na', 'P', 'PH', 'SO4', 'Si', 'TDS', 'TSS'), selected = 'TDS')
 
-#button to download the data
-download <- downloadButton("downloadData", "Export as png")
-
 #Add the input variables and a title to the side panel of the user interface
-side <- sidebarPanel('Options', searchBy,uiOutput("ui"), timeRange, target, download)
+side <- sidebarPanel('Options', searchBy,uiOutput("ui"), timeRange, target)
 
 #Variable for Label in Main frame on GUI
 out1 <- textOutput('basin_label')
 
 #Variable for plot in the main frame on GUI
-out2 <- plotOutput('basin_plot')
+out2 <- plotOutput('plot')
 
 
 #Add the title, and outputs to the main frame on GUI
