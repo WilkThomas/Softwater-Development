@@ -12,4 +12,4 @@ Demo 2 will show more options within the user selections.  The user can now sele
 ## Description of Project for D3
 Demo 3 hasn't changed too much. Appearance wise, a color theme was selected for the app and was set for the whole application. Also, the app now is split up into several different files making it easier to read and navigate. The code was also refactored a bit for additional clarity. A map graph is still in the works and was worked on through this interation but still needs some time till its ready for release on the app. The next iteration may see a map feature.
 ## Description of Project for D4
-The app that is demoed in deom 4 will be similar to the app demoed in demo 3, however some minor bugs were fixed as well as the app was published to a website here https://softwater-devolopment.shinyapps.io/softwaterdevelopment/. 
+The app that is demoed in demo 4 will be similar to the app demoed in demo 3, however some minor bugs were fixed as well as the app was published to a website here.   https://softwater-devolopment.shinyapps.io/softwaterdevelopment/. 
