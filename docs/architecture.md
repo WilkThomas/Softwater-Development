@@ -10,7 +10,7 @@ This will hopefully serve to promote the assessment of beneficial uses of produc
 ### Key Architectural Drivers
 ##### Fuctional Requirements
 * Provide a serious parameter to extract desired data
-* Export a table for selected data
+* View a table for selected data
 * Generate and export a figure for selected data
 
 
