@@ -44,8 +44,8 @@ The graphical user interface will be able to:
   - Oil production  
   - Gas production  
 - Export a table for selected data  
-- Generate and export a figure for selected data  
-- Generate and export a GIS map for selected data
+- Generate a figure for selected data  
+
 ##### 2.3 User Characteristics and Expectations
 Users would include geological researchers, ecologists, government regulators,
 enviromental protection agencies, enviromental researchers, and oil companies.  
