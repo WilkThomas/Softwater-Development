@@ -3,9 +3,13 @@
 Softwater Development is striving to develope a GUI for a user friendly way of accessing data from the USGS database. This database doesnt have a UI currently, so this would be a great R based web application to help users filter and view the data for use in research, policy making, and more.
 
 Team Memebers:
+
 Danielle Caesar
+
 Thomas Wilkinson
+
 Lu Lin
+
 Nathaniel Mouttet
 
 ### Problem Statement
