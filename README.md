@@ -12,7 +12,7 @@ The app is developed in R using RStudio. Using RStudio, open the project doing O
 Also included in the SoftwaterDevelopment directory is the rsconnect directory created in publishing the application (no editing needed here).
 
 ## Test Suite
-The tests directory comprises the different test suites used for the web application. The tests directory has two different types of test from shinytests and testthat both of which have their own directories. Also inside the tests directory are two R files: shinytest.R and testthat.R which are used to run the test. If you insert the command runTests() into the RStudio consol it will run all the test suites and print the results.
+The tests directory comprises the different test suites used for the web application. The tests directory has two different types of test from shinytests and testthat both of which have their own directories. Also inside the tests directory are two R files: shinytest.R and testthat.R which are used to run the test. If you insert the command runTests() into the RStudio console, it will run all the test suites and print the results.
 
 ## Further Documentation
 In the gh-pages branch of the repo is housed the docs directory which consists of the .md and .html files used for documenting and populating the project site. Also includes is a res directory for some images used in the user stories and an images directory housing some supporting images for the other documentation files.
